@@ -1,0 +1,1 @@
+// Dynamic anime detail page
