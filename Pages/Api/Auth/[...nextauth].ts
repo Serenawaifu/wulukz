@@ -1,0 +1,1 @@
+// Email/password auth using CredentialsProvider (mocked, backend setup required)
