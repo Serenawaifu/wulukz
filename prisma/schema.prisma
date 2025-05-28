@@ -1,0 +1,46 @@
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       String   @id @default(cuid())
+  email    String   @unique
+  password String
+  name     String?
+  ratings  Rating[]
+  comments Comment[]
+}
+
+model Anime {
+  id       String   @id @default(cuid())
+  malId    Int      @unique
+  title    String
+  imageUrl String
+  synopsis String?
+  ratings  Rating[]
+  comments Comment[]
+}
+
+model Rating {
+  id      String   @id @default(cuid())
+  score   Int
+  userId  String
+  animeId String
+  user    User     @relation(fields: [userId], references: [id])
+  anime   Anime    @relation(fields: [animeId], references: [id])
+}
+
+model Comment {
+  id      String   @id @default(cuid())
+  content String
+  userId  String
+  animeId String
+  user    User     @relation(fields: [userId], references: [id])
+  anime   Anime    @relation(fields: [animeId], references: [id])
+}
