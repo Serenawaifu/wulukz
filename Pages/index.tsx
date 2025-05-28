@@ -1,0 +1,1 @@
+// Home page with mascot, hero section, and featured anime

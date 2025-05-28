@@ -1,0 +1,1 @@
+// List view of anime using Jikan API
